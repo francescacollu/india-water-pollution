@@ -1,0 +1,246 @@
+/* =========================================================================
+   India water story — styles
+   Every rule starts with .fo-iw so nothing leaks into (or gets overwritten
+   by) the WordPress theme when the story is pasted into a page.
+   ========================================================================= */
+
+/* ---- 1. Design tokens: change the look of the whole story here --------- */
+.fo-iw {
+  --fo-iw-orange: #ff6d00;
+  --fo-iw-purple: #3c096c;
+  --fo-iw-pale: #fff1e6;
+  --fo-iw-ink: #0b0b0b;
+  --fo-iw-ink-2: #52514e;
+  --fo-iw-ink-3: #898781;
+  --fo-iw-surface: #fcfcfb;
+  --fo-iw-plane: #f9f9f7;
+  --fo-iw-line: #e1e0d9;
+  --fo-iw-note: #fff4b8;
+
+  --fo-iw-serif: Georgia, "Times New Roman", serif;
+  --fo-iw-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --fo-iw-text-width: 40rem;   /* width of normal paragraphs */
+  --fo-iw-wide-width: 64rem;   /* width of size="wide" images */
+
+  font-family: var(--fo-iw-serif);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--fo-iw-ink);
+  background: var(--fo-iw-surface);
+}
+.fo-iw *, .fo-iw *::before, .fo-iw *::after { box-sizing: border-box; }
+
+/* Breaks out of the WordPress content column to span the full screen. */
+.fo-iw-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+}
+
+/* ---- 2. Hero ------------------------------------------------------------ */
+.fo-iw-hero {
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 3rem 1rem;
+  color: #fff;
+  background: linear-gradient(160deg, var(--fo-iw-purple), #10021f) center / cover no-repeat;
+  position: relative;
+}
+.fo-iw-hero::before {            /* darkens photos so the title stays readable */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0) 60%);
+}
+.fo-iw-hero-inner {
+  position: relative;
+  max-width: var(--fo-iw-wide-width);
+  margin: 0 auto;
+  width: 100%;
+}
+.fo-iw-hero h1 {
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  line-height: 1.05;
+  margin: 0 0 1rem;
+  font-weight: 700;
+}
+.fo-iw-dek { font-size: 1.3rem; max-width: 36rem; margin: 0 0 1.5rem; }
+.fo-iw-byline { font-family: var(--fo-iw-sans); font-size: .9rem; opacity: .85; }
+.fo-iw-hero-caption {
+  position: absolute;
+  right: 1rem;
+  bottom: .75rem;
+  font-family: var(--fo-iw-sans);
+  font-size: .75rem;
+  opacity: .75;
+}
+
+/* ---- 3. Normal article text ------------------------------------------- */
+.fo-iw-body > :not(.fo-iw-bleed):not(.fo-iw-wide) {
+  max-width: var(--fo-iw-text-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.fo-iw p { margin: 0 0 1.25em; }
+.fo-iw h2 {
+  font-family: var(--fo-iw-sans);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  line-height: 1.2;
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+}
+.fo-iw h3 {
+  font-family: var(--fo-iw-sans);
+  font-size: 1.3rem;
+  margin-top: 2.5rem;
+  margin-bottom: .75rem;
+}
+.fo-iw a { color: var(--fo-iw-purple); text-decoration-color: var(--fo-iw-orange); text-underline-offset: 3px; }
+.fo-iw blockquote {
+  font-size: 1.5rem;
+  line-height: 1.35;
+  font-style: italic;
+  border-left: 4px solid var(--fo-iw-orange);
+  margin: 2.5rem auto;
+  padding-left: 1.25rem !important;
+}
+.fo-iw blockquote p { margin: 0; }
+
+/* Draft notes — removed completely by `python build.py --final` */
+.fo-iw-note {
+  font-family: var(--fo-iw-sans);
+  font-size: .85rem;
+  background: var(--fo-iw-note);
+  border: 1px dashed #c9a800;
+  border-radius: 4px;
+  padding: .4rem .7rem !important;
+  margin-bottom: 1.25rem;
+}
+.fo-iw-note::before { content: "NOTE: "; font-weight: 700; }
+
+/* ---- 4. Images and video ---------------------------------------------- */
+.fo-iw-media { margin-top: 2.5rem; margin-bottom: 2.5rem; }
+.fo-iw-media img, .fo-iw-media video { display: block; width: 100%; height: auto; }
+.fo-iw-wide { max-width: var(--fo-iw-wide-width); margin-left: auto; margin-right: auto; padding: 0 1rem; }
+.fo-iw-media figcaption {
+  font-family: var(--fo-iw-sans);
+  font-size: .85rem;
+  color: var(--fo-iw-ink-2);
+  margin-top: .5rem;
+  padding: 0 1rem;
+}
+.fo-iw-bleed figcaption { max-width: var(--fo-iw-wide-width); margin-left: auto; margin-right: auto; }
+.fo-iw-credit { color: var(--fo-iw-ink-3); }
+.fo-iw-media-missing {         /* grey box shown while src="" is empty */
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  background: repeating-linear-gradient(45deg, var(--fo-iw-plane), var(--fo-iw-plane) 12px, var(--fo-iw-line) 12px, var(--fo-iw-line) 24px);
+  font-family: var(--fo-iw-sans);
+  color: var(--fo-iw-ink-2);
+}
+
+/* ---- 5. Scrolly sections ------------------------------------------------
+   Base rules = "overlay" layout (graphic fills the screen, cards on top).
+   The "side" layout overrides them on wide screens only, so on phones every
+   scrolly falls back to overlay.
+   ------------------------------------------------------------------------ */
+.fo-iw-scrolly { position: relative; margin-top: 3rem; margin-bottom: 3rem; background: var(--fo-iw-plane); }
+
+.fo-iw-graphic-wrap {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;     /* avoids jumps when mobile browser bars hide/show */
+  overflow: hidden;
+}
+.fo-iw-graphic { width: 100%; height: 100%; margin: 0; position: relative; }
+
+.fo-iw-steps {
+  position: relative;
+  z-index: 1;
+  margin-top: -100vh;
+  margin-top: -100svh;
+  pointer-events: none;      /* lets the mouse reach the map underneath */
+}
+.fo-iw-step {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+.fo-iw-step:last-child { min-height: 120vh; }
+.fo-iw-step-card {
+  pointer-events: auto;
+  max-width: 26rem;
+  background: rgba(252, 252, 251, .95);
+  padding: 1.25rem 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, .12);
+  opacity: .35;
+  transition: opacity .3s;
+}
+.fo-iw-step.is-active .fo-iw-step-card { opacity: 1; }
+.fo-iw-step-card > :last-child { margin-bottom: 0; }
+
+@media (min-width: 800px) {
+  .fo-iw-scrolly--overlay .fo-iw-step { justify-content: flex-start; padding-left: 6vw; }
+
+  .fo-iw-scrolly--side {
+    display: grid;
+    grid-template-columns: minmax(20rem, 2fr) 3fr;
+  }
+  .fo-iw-scrolly--side .fo-iw-graphic-wrap { grid-column: 2; grid-row: 1; align-self: start; }
+  .fo-iw-scrolly--side .fo-iw-steps { grid-column: 1; grid-row: 1; margin-top: 0; }
+  .fo-iw-scrolly--side .fo-iw-step-card { box-shadow: none; background: transparent; }
+}
+
+/* ---- 6. Chart pieces shared by graphics ------------------------------- */
+.fo-iw-chart-ui { font-family: var(--fo-iw-sans); font-size: .8rem; color: var(--fo-iw-ink-2); }
+.fo-iw-legend {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 14rem;
+  background: rgba(252, 252, 251, .9);
+  padding: .5rem .75rem;
+  border-radius: 4px;
+  transition: opacity .4s;
+}
+.fo-iw-legend-title { font-weight: 600; color: var(--fo-iw-ink); margin-bottom: .3rem; }
+.fo-iw-legend-bar { height: 10px; border-radius: 2px; }
+.fo-iw-legend-ticks { display: flex; justify-content: space-between; margin-top: .2rem; }
+.fo-iw-source { position: absolute; right: 1rem; bottom: .75rem; color: var(--fo-iw-ink-3); }
+.fo-iw-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: var(--fo-iw-ink);
+  color: #fff;
+  padding: .35rem .55rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .15s;
+  z-index: 2;
+}
+
+/* The "placeholder" graphic */
+.fo-iw-placeholder {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: repeating-linear-gradient(-45deg, var(--fo-iw-plane), var(--fo-iw-plane) 20px, #f1f0eb 20px, #f1f0eb 40px);
+}
+.fo-iw-placeholder-name { text-transform: uppercase; letter-spacing: .1em; }
+.fo-iw-placeholder-view { font-size: clamp(2rem, 6vw, 4rem); font-weight: 700; color: var(--fo-iw-purple); transition: opacity .3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fo-iw * { transition: none !important; animation: none !important; }
+}

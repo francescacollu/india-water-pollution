@@ -1,0 +1,37 @@
+state,sewage_generation_mld,installed_capacity_mld,installed_capacity_pct_of_generation,actual_treated_mld,actual_treated_pct_of_generation,actual_treated_pct_of_installed_capacity
+Andaman & Nicobar Islands,23,0,0,0,0,0
+Andhra Pradesh,2882,833,29,309,11,37
+Arunachal Pradesh,62,0,0,0,0,0
+Assam,809,0,0,0,0,0
+Bihar,2276,10,0,0,0,0
+Chandigarh,188,293,156,235,125,80
+Chhattisgarh,1203,73,6,6,0,8
+Daman Diu Dadra & Nagar Haveli,67,24,36,7,10,29
+Goa,176,66,38,25,14,38
+Gujarat,5013,3378,67,2687,54,80
+Haryana,1816,1880,104,1284,71,68
+Himachal Pradesh,116,136,117,51,44,38
+Jammu & Kashmir,665,218,33,49,7,22
+Jharkhand,1510,22,1,15,1,68
+Karnataka,4458,2712,61,1786,40,66
+Kerala,4256,120,3,47,1,39
+Lakshadweep,13,0,0,0,0,0
+Madhya Pradesh,3646,1839,50,536,15,29
+Maharashtra,9107,6890,76,4242,47,62
+Manipur,168,0,0,0,0,0
+Meghalaya,112,0,0,0,0,0
+Mizoram,103,10,10,0,0,0
+Nagaland,135,0,0,0,0,0
+NCT of Delhi,3330,2896,87,2412,72,83
+Odisha,1282,378,29,50,4,13
+Puducherry,161,56,35,30,19,54
+Punjab,1889,1781,94,1360,72,76
+Rajasthan,3185,1086,34,478,15,44
+Sikkim,52,20,38,14,27,70
+Tamil Nadu,6421,1492,23,995,15,67
+Telangana,2660,901,34,706,27,78
+Tripura,237,8,3,1.5,1,19
+Uttar Pradesh,8263,3374,41,2510,30,74
+Uttarakhand,627,448,71,187,30,42
+West Bengal,5457,897,16,213,4,24
+Total,72368,31841,44,20236,28,64
